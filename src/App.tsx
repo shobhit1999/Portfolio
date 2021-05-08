@@ -1,10 +1,11 @@
-import Loader from 'components/Loader';
 import React from 'react';
+
+import Layout from 'layout';
 
 const App: React.FC = () => {
 	return (
 		<>
-			<Loader loading={true} />
+			<Layout />
 		</>
 	);
 };

@@ -16,13 +16,14 @@ const useStyle = makeStyles((theme) => ({
 		top: 0,
 		width: '100vw',
 		'z-index': 10000,
+		background: theme.palette.secondary.main,
 	},
 	loader: {
 		height: '110px',
 		width: '110px',
 		borderRadius: '100%',
 		border: `1px solid ${theme.palette.primary.main}`,
-		paddingTop: theme.spacing(0.5),
+		paddingTop: theme.spacing(1),
 		paddingRight: theme.spacing(0.5),
 	},
 	imgWrapper: {
