@@ -87,7 +87,11 @@ const Default: React.FC = ({ children }) => {
 								<Button className={classes.toolbarBtn}>Experience</Button>
 								<Button className={classes.toolbarBtn}>Work</Button>
 								<Button className={classes.toolbarBtn}>Contact</Button>
-								<Button variant="contained" color="secondary">
+								<Button
+									variant="contained"
+									color="secondary"
+									href="/Docs/Shobhit_resume.pdf"
+									download="Shobhit's Resume.pdf">
 									Resume
 								</Button>
 							</Grid>
