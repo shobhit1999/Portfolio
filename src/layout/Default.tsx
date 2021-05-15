@@ -61,6 +61,13 @@ const useStyle = makeStyles((theme) => ({
 	},
 }));
 
+const TOOLBAR_BTN = [
+	{ title: 'About', href: '#about' },
+	{ title: 'Experience', href: '#experience' },
+	{ title: 'Work', href: '#work' },
+	{ title: 'Contact', href: '#contact' },
+];
+
 const Default: React.FC = ({ children }) => {
 	const classes = useStyle();
 	const [transition, setTransition] = useState<boolean>(false);
@@ -83,10 +90,13 @@ const Default: React.FC = ({ children }) => {
 								<img src={MainIcon} height="36" width="36" className={classes.mainIcon} />
 							</Grid>
 							<Grid container alignItems="center" className={classes.fitContent}>
-								<Button className={classes.toolbarBtn}>About</Button>
-								<Button className={classes.toolbarBtn}>Experience</Button>
-								<Button className={classes.toolbarBtn}>Work</Button>
-								<Button className={classes.toolbarBtn}>Contact</Button>
+								{TOOLBAR_BTN.map((item) => {
+									return (
+										<Button className={classes.toolbarBtn} href={item.href} key={item.title}>
+											{item.title}
+										</Button>
+									);
+								})}
 								<Button
 									variant="contained"
 									color="secondary"

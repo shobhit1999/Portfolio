@@ -1,15 +1,18 @@
 import React from 'react';
 
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 
-import clsx from 'clsx';
+import About from './About';
+import Experience from './Experience';
+import Main from './Home';
 
 const useStyle = makeStyles((theme) => ({
 	h100: {
-		height: '100%',
+		height: 'calc(100vh - 80px)',
+		transition:
+			'opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s, transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s',
+		transitionDelay: '500',
 	},
 	white: {
 		color: 'white',
@@ -26,28 +29,24 @@ const useStyle = makeStyles((theme) => ({
 	},
 }));
 
+const SECTIONS = [
+	{ id: 'main', container: <Main /> },
+	{ id: 'about', container: <About /> },
+	{ id: 'experience', container: <Experience /> },
+];
+
 const Home: React.FC = () => {
 	const classes = useStyle();
 	return (
 		<>
-			<Grid container justify="center" direction="column" className={classes.h100}>
-				<Typography color="primary">Hi, my name is</Typography>
-				<Typography className={clsx(classes.white, classes.mt3)} variant="h2">
-					<b>Shobhit Mangla.</b>
-				</Typography>
-				<Typography className={clsx(classes.slate, classes.mt3)} variant="h3">
-					<b>I build things for the web.</b>
-				</Typography>
-				<Typography
-					className={clsx(classes.slate, classes.mt3)}>{`I'm a Full Stack Web Developer.`}</Typography>
-				<Button
-					variant="outlined"
-					color="primary"
-					className={classes.touchBtn}
-					href="mailto:manglashobhit@gmail.com">
-					Get in Touch
-				</Button>
-			</Grid>
+			{SECTIONS.map((item) => {
+				const { id, container } = item;
+				return (
+					<Grid container justify="center" direction="column" className={classes.h100} key={id} id={id}>
+						{container}
+					</Grid>
+				);
+			})}
 		</>
 	);
 };
